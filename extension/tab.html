@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Light JavaScript Playground</title>
+
+        <script type="text/javascript" src="lib/jquery-2.1.0.min.js" charset="utf-8"></script>
+        <script type="text/javascript" src="lib/ace.js" charset="utf-8"></script>
+        <script type="text/javascript" src="tab.js" charset="utf-8"></script>
+
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+        <link href='icons.css' rel='stylesheet' type='text/css'>
+        <link href='tab.css' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div id="nav">
+            <div class="row">
+                <a href="tab.html" id="home" alt="Light JavaScript Playground"><img src="icon38_trans.png" ></a>
+                <a id="run" accesskey="r" title="(Alt + Shift + R)"><i class="icon icon-play"></i> Run</a>
+                <a href="about:blank" id="save" download="tabjs.html" accesskey="s" title="(Alt + Shift + S)"><i class="icon icon-disk"></i> <span>Save to file</span></a>
+            </div>
+            <a id="fiddle" class="pull-right"><i class="icon icon-upload"></i><span class="hide-sm"> Turn into Fiddle</span></a>
+            <div class="row">
+                <label>JS<span class="hide-md"> framework</span>:
+                <select id="framework">
+                    <optgroup label="Pure JS">
+                        <option value="about:blank" data-path="library/pure">None</option>
+                    </optgroup>
+                    <optgroup label="jQuery">
+                        <option value="http://code.jquery.com/jquery-1.10.1.min.js" data-path="jQuery/1.10.1" selected>jQuery/1.10.1</option>
+                        <option value="http://code.jquery.com/jquery-2.0.2.min.js" data-path="jQuery/2.0.2">jQuery/2.0.2</option>
+                        <option value="http://code.jquery.com/jquery-git2.js" data-path="jQuery/2.x">jQuery/2.x (edge)</option>
+                    </optgroup>
+                </select>
+                </label>
+                <label>CSS<span class="hide-md"> framework</span>:
+                <select id="cssFramework">
+                    <optgroup label="Pure CSS">
+                        <option value="none" selected>None</option>
+                    </optgroup>
+                    <optgroup label="Reset">
+                        <option value="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.0/normalize.min.css">normalize.css</option>
+                        <option value="http://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">meyer-reset</option>
+                        <option value="http://cdnjs.cloudflare.com/ajax/libs/sanitize.css/1.0.1/sanitize.min.css">sanitize.css</option>
+                    </optgroup>
+                    <optgroup label="Grid">
+                        <option value="http://cdnjs.cloudflare.com/ajax/libs/960gs/0/960.css">960.css</option>
+                        <option value="http://cdnjs.cloudflare.com/ajax/libs/skeleton/1.2/skeleton.min.css">skeleton</option>
+                    </optgroup>
+                    <optgroup label="Bootstrap">
+                        <option value="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" data-path-js="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js">Bootstrap 3.0.3</option>
+                        <option value="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" data-path-js="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js">Bootstrap 2.3.2</option>
+                    </optgroup>
+                </select>
+                </label>
+            </div>
+        </div>
+
+        <form id="editor" method="post" action="http://jsfiddle.net/api/post/jquery/1.10.1/">
+            <input type="hidden" name="wrap" value="b">
+            <input type="hidden" name="title" value="Light JavaScript Playground - Export">
+            <input type="hidden" name="dtd" value="html">
+            <input type="hidden" name="html" id="htmlVar" value="">
+            <input type="hidden" name="css" id="cssVar" value="">
+            <input type="hidden" name="js" id="jsVar" value="">
+            <input type="hidden" name="resources" id="resourcesVar" value="">
+            <div id="left">
+                <div id="html">
+                    <h2>HTML</h2>
+                    <div id="htmlTextarea" class="textarea"></div>
+                </div>
+
+                <div id="js">
+                    <h2>JS</h2>
+                    <div id="jsTextarea" class="textarea"></div>
+                </div>
+            </div>
+
+            <div id="right">
+                <div id="css">
+                    <h2>CSS</h2>
+                    <div id="cssTextarea" class="textarea"></div>
+                </div>
+
+                <iframe id="output" src="about:blank">
+                </iframe>
+            </div>
+        </form>
+    </body>
+</html>
